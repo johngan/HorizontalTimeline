@@ -26,7 +26,7 @@ public class HorizontalTimeline {
         this.buttonNext = buttonNext;
 
         setup();
-        setupButtonsControl();
+        setupButtonsControl(currentStep);
     }
 
     private void setup() {
@@ -38,25 +38,6 @@ public class HorizontalTimeline {
 
         mAdapter = new HorizontalTimelineAdapter(context.getApplicationContext(), data);
 
-        // next/previous step button is clicked
-        buttonNext.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ++currentStep;
-                stepForward();
-                setupButtonsControl();
-            }
-        });
-
-        buttonPrevious.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                stepBackward();
-                setupButtonsControl();
-                currentStep--;
-            }
-        });
-
         recyclerView.setAdapter(mAdapter);
     }
 
@@ -64,7 +45,9 @@ public class HorizontalTimeline {
     /**
      *  When previous button is pressed
      */
-    private void stepForward(){
+    public void stepForward(int currentStep){
+        setupButtonsControl(currentStep);
+
         layoutManager.getChildAt(currentStep).findViewById(R.id.timeline_circle)
                 .setBackgroundResource(R.drawable.timeline_circle);
         layoutManager.getChildAt(currentStep).findViewById(R.id.timeline_line_left)
@@ -84,7 +67,9 @@ public class HorizontalTimeline {
     /**
      *  When next button is pressed
      */
-    private void stepBackward(){
+    public void stepBackward(int currentStep){
+        setupButtonsControl(currentStep);
+
         layoutManager.getChildAt(currentStep).findViewById(R.id.timeline_circle)
                 .setBackgroundResource(R.drawable.timeline_circle_black);
         layoutManager.getChildAt(currentStep).findViewById(R.id.timeline_line_left)
@@ -100,11 +85,10 @@ public class HorizontalTimeline {
                     .setBackgroundResource(R.drawable.timeline_line_black);
     }
 
-
     /**
      *  To show or hide the Previous and Next buttons
      */
-    private void setupButtonsControl(){
+    private void setupButtonsControl(int currentStep){
         if (currentStep == -1 || currentStep == 0)
             buttonPrevious.setVisibility(View.GONE);
         else

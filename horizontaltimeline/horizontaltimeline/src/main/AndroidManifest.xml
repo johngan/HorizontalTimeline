@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.john.horizontaltimeline">
+    package="com.jonganhf.horizontaltimeline">
 
     <application
         android:allowBackup="true"

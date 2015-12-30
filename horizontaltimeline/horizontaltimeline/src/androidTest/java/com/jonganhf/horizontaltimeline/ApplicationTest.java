@@ -1,4 +1,4 @@
-package com.example.john.horizontaltimeline;
+package com.jonganhf.horizontaltimeline;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

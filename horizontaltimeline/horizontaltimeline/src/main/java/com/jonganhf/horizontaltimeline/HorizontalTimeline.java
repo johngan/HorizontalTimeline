@@ -1,4 +1,4 @@
-package com.example.john.horizontaltimeline;
+package com.jonganhf.horizontaltimeline;
 
 import android.content.Context;
 import android.support.v7.widget.LinearLayoutManager;

@@ -1,1 +1,1 @@
-include ':app', ':horizontaltimeline'
+include ':HorizontalTimelineDemo', ':HorizontalTimeline'

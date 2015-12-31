@@ -1,4 +1,4 @@
-package com.example.john.sampleproject;
+package com.jonganhf.horizontaltimeline.sampleproject;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
